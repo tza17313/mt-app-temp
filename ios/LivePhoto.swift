@@ -42,6 +42,7 @@ public class LivePhoto: NSObject {
             creationRequest.addResource(with: PHAssetResourceType.photo, fileURL: pairedImage, options: options)
         }, completionHandler: { (success, error) in
             if error != nil {
+                NSLog("========================== SaveToLibrary error ==========================");
                 print(error as Any)
             }
             completion(success)

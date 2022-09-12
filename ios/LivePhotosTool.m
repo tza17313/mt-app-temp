@@ -50,18 +50,18 @@ RCT_EXPORT_METHOD(generate:(NSString *)imageStr videoURL:(NSString *)videoStr co
 
   } completion:^(PHLivePhoto * _Nullable livePhoto, NSURL * _Nullable pairedImage, NSURL * _Nullable pairedVideo) {
 
-    [LivePhoto saveToLibrary:pairedImage pairedVideo:pairedVideo  {
-
-        } completion:^(success, error) {
-          if (callback) {
-            //completion(pairedImage.absoluteString, pairedVideo.absoluteString);
-            callback(@[[NSNull null]]);
-          }
-    }];
-
-    if (callback) {
+    [LivePhoto saveToLibraryWithPairedImage:pairedImage pairedVideo:pairedVideo completion:^(BOOL result) {
       callback(@[[NSNull null]]);
-    }
+    }];
+//    [LivePhoto saveToLibrary:pairedImage pairedVideo:pairedVideo  {
+//
+//        } completion:^(success, error) {
+//          if (callback) {
+//            //completion(pairedImage.absoluteString, pairedVideo.absoluteString);
+//            callback(@[[NSNull null]]);
+//          }
+//    }];
+
   }];
 }
 
