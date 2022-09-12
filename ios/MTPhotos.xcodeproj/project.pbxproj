@@ -14,6 +14,8 @@
 		66CA27E2516E698DEDC005EE /* libPods-MTPhotos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA9FDF61471DBAF1975BB10 /* libPods-MTPhotos.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8CE58EF7FE01404764BB7232 /* libPods-MTPhotos-MTPhotosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DBB379143E310DF2E09146 /* libPods-MTPhotos-MTPhotosTests.a */; };
+		DFAA702E28CF2BFD00BB8FE9 /* LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAA702D28CF2BFD00BB8FE9 /* LivePhoto.swift */; };
+		DFAA703128CF347400BB8FE9 /* LivePhotosTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAA703028CF347400BB8FE9 /* LivePhotosTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MTPhotos/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88DBB379143E310DF2E09146 /* libPods-MTPhotos-MTPhotosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MTPhotos-MTPhotosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACACBF46FCFF3385A1BBE8A0 /* Pods-MTPhotos-MTPhotosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTPhotos-MTPhotosTests.debug.xcconfig"; path = "Target Support Files/Pods-MTPhotos-MTPhotosTests/Pods-MTPhotos-MTPhotosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DFAA702C28CF2BFC00BB8FE9 /* MTPhotos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MTPhotos-Bridging-Header.h"; sourceTree = "<group>"; };
+		DFAA702D28CF2BFD00BB8FE9 /* LivePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePhoto.swift; sourceTree = "<group>"; };
+		DFAA702F28CF347400BB8FE9 /* LivePhotosTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePhotosTool.h; sourceTree = "<group>"; };
+		DFAA703028CF347400BB8FE9 /* LivePhotosTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePhotosTool.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -86,6 +92,7 @@
 		13B07FAE1A68108700A75B9A /* MTPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				DFAA702B28CF2BE700BB8FE9 /* LivePhoto */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -104,7 +111,6 @@
 				ACACBF46FCFF3385A1BBE8A0 /* Pods-MTPhotos-MTPhotosTests.debug.xcconfig */,
 				29C857E7BF0D9AE887DC4A07 /* Pods-MTPhotos-MTPhotosTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -147,6 +153,17 @@
 				00E356EE1AD99517003FC87E /* MTPhotosTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DFAA702B28CF2BE700BB8FE9 /* LivePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				DFAA702D28CF2BFD00BB8FE9 /* LivePhoto.swift */,
+				DFAA702F28CF347400BB8FE9 /* LivePhotosTool.h */,
+				DFAA703028CF347400BB8FE9 /* LivePhotosTool.m */,
+				DFAA702C28CF2BFC00BB8FE9 /* MTPhotos-Bridging-Header.h */,
+			);
+			name = LivePhoto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +225,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -413,6 +430,8 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				DFAA703128CF347400BB8FE9 /* LivePhotosTool.m in Sources */,
+				DFAA702E28CF2BFD00BB8FE9 /* LivePhoto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +450,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ACACBF46FCFF3385A1BBE8A0 /* Pods-MTPhotos-MTPhotosTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4S68FLC2TS;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -458,8 +479,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29C857E7BF0D9AE887DC4A07 /* Pods-MTPhotos-MTPhotosTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 4S68FLC2TS;
 				INFOPLIST_FILE = MTPhotosTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4S68FLC2TS;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MTPhotos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,6 +522,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MTPhotos;
+				SWIFT_OBJC_BRIDGING_HEADER = "MTPhotos-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -511,6 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4S68FLC2TS;
 				INFOPLIST_FILE = MTPhotos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,6 +549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MTPhotos;
+				SWIFT_OBJC_BRIDGING_HEADER = "MTPhotos-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -561,7 +588,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -627,7 +654,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

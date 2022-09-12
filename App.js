@@ -25,7 +25,7 @@ function App() {
           height:"100%"
         }}>
         <Button title="提取LivePhotos" onPress={() => {
-          LivePhotosTool.extractResources("photoURL").then((res) => {
+          LivePhotosTool.extractResources(["photoURL"]).then((pairedImage, pairedVideo) => {
 
           }).catch((e) => {
             console.log("catch error:", e);
@@ -33,7 +33,7 @@ function App() {
         }} />
         <View style={{height:50}}/>
         <Button title="保存LivePhotos" onPress={() => {
-          LivePhotosTool.generate("photoURL","videoURL").then((res) => {
+          LivePhotosTool.generate("photoURL","videoURL").then((pairedImage, pairedVideo) => {
 
           }).catch((e) => {
             console.log("catch error:", e);
