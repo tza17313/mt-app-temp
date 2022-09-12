@@ -39,7 +39,7 @@ RCT_EXPORT_METHOD(extractResources:(NSArray<NSString *> *)photoURLs completion:(
   }];
 }
 
-RCT_EXPORT_METHOD(generate:(NSString *)imageStr videoURL:(NSString *)videoStr completion:(void (^)(NSString *, NSString *))completion)
+RCT_EXPORT_METHOD(generate:(NSString *)imageStr videoURL:(NSString *)videoStr completion:(RCTResponseSenderBlock)callback)
 {
   NSURL *imageUrl = [NSURL URLWithString:imageStr];
   NSURL *videoUrl = [NSURL URLWithString:videoStr];
@@ -48,9 +48,10 @@ RCT_EXPORT_METHOD(generate:(NSString *)imageStr videoURL:(NSString *)videoStr co
   }
   [LivePhoto generateFrom:imageUrl videoURL:videoUrl progress:^(CGFloat) {
     
-  } completion:^(PHLivePhoto * _Nullable, NSURL * _Nullable pairedImage, NSURL * _Nullable pairedVideo) {
-    if (completion) {
-      completion(pairedImage.absoluteString, pairedVideo.absoluteString);
+  } completion:^(PHLivePhoto * _Nullable livePhoto, NSURL * _Nullable pairedImage, NSURL * _Nullable pairedVideo) {
+    if (callback) {
+      //completion(pairedImage.absoluteString, pairedVideo.absoluteString);
+      callback(@[[NSNull null]]);
     }
   }];
 }
