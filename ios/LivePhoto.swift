@@ -30,12 +30,16 @@ public class LivePhoto: NSObject {
         }
     }
     /// Save a Live Photo to the Photo Library by passing the paired image and video.
-    public class func saveToLibrary(_ resources: LivePhotoResources, completion: @escaping (Bool) -> Void) {
+    @objc
+    public class func saveToLibrary(pairedImage: URL?, pairedVideo: URL?, completion: @escaping (Bool) -> Void) {
         PHPhotoLibrary.shared().performChanges({
+            guard let pairedImage = pairedImage, let pairedVideo = pairedVideo else {
+                return
+            }
             let creationRequest = PHAssetCreationRequest.forAsset()
             let options = PHAssetResourceCreationOptions()
-            creationRequest.addResource(with: PHAssetResourceType.pairedVideo, fileURL: resources.pairedVideo, options: options)
-            creationRequest.addResource(with: PHAssetResourceType.photo, fileURL: resources.pairedImage, options: options)
+            creationRequest.addResource(with: PHAssetResourceType.pairedVideo, fileURL: pairedVideo, options: options)
+            creationRequest.addResource(with: PHAssetResourceType.photo, fileURL: pairedImage, options: options)
         }, completionHandler: { (success, error) in
             if error != nil {
                 print(error as Any)
