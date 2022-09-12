@@ -43,6 +43,22 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+    <string>MT Photos不需要摄像头权限</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>MT Photos不需要麦克风权限</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>允许此应用程序上传、下载和备份设备上的照片和视频</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>允许此应用程序上传、下载和备份设备上的照片和视频</string>
+    <key>RCTAsyncStorageExcludeFromBackup</key>
+    <false/>
+    <key>UIBackgroundModes</key>
+    <array>
+    	<string>fetch</string>
+    </array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
