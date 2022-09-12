@@ -19,7 +19,7 @@ RCT_EXPORT_METHOD(extractResources:(NSArray<NSString *> *)photoURLs completion:(
   if (photoURLs.count <= 0) {
     return;
   }
-  
+
   __block NSMutableArray *photoUrlStrs = [NSMutableArray new];
   [photoURLs enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     NSURL *url = [NSURL URLWithString:obj];
@@ -27,7 +27,7 @@ RCT_EXPORT_METHOD(extractResources:(NSArray<NSString *> *)photoURLs completion:(
       [photoUrlStrs addObject:url];
     }
   }];
-  
+
   [PHLivePhoto requestLivePhotoWithResourceFileURLs:photoUrlStrs placeholderImage:nil targetSize:CGSizeZero contentMode:PHImageContentModeDefault resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nonnull info) {
     if (livePhoto) {
       [LivePhoto extractResourcesFrom:livePhoto completion:^(NSURL * _Nullable pairedImage, NSURL * _Nullable pairedVideo) {
@@ -47,10 +47,19 @@ RCT_EXPORT_METHOD(generate:(NSString *)imageStr videoURL:(NSString *)videoStr co
     return;
   }
   [LivePhoto generateFrom:imageUrl videoURL:videoUrl progress:^(CGFloat) {
-    
+
   } completion:^(PHLivePhoto * _Nullable livePhoto, NSURL * _Nullable pairedImage, NSURL * _Nullable pairedVideo) {
+
+    [LivePhoto saveToLibrary:pairedImage pairedVideo:pairedVideo  {
+
+        } completion:^(success, error) {
+          if (callback) {
+            //completion(pairedImage.absoluteString, pairedVideo.absoluteString);
+            callback(@[[NSNull null]]);
+          }
+    }];
+
     if (callback) {
-      //completion(pairedImage.absoluteString, pairedVideo.absoluteString);
       callback(@[[NSNull null]]);
     }
   }];
